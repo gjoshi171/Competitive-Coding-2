@@ -1,0 +1,29 @@
+//time complexity : O(n)
+//space complexity: O(n)
+//successfully executed on leetcode
+
+class TwoSum {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer,Integer> map= new HashMap<>();
+        int indx;
+        int result[]=new int[2];
+        //store element in HashMap
+        for(int i=0;i<nums.length-1;i++){
+            map.put(nums[i], i);
+        }
+
+        //find the diff between the elemnt and target, and then check wether it exists in map.
+        for(int i=0;i<nums.length;i++){
+            int secElement= target-nums[i];
+            if(map.containsKey(secElement)  ){
+                indx= map.get(secElement);
+                if(indx!=i){
+                    result[0]=i;
+                    result[1]=indx;
+                }
+             
+            }
+        }
+    return result;
+    }
+}
